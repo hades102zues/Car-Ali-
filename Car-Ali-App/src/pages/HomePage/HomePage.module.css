@@ -1,0 +1,38 @@
+.h2 {
+	font-size: 3rem;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.featuredLister {
+	margin-top: 5px;
+	height: 60rem;
+}
+.h4 {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.lister {
+	margin-top: 5px;
+	height: 30rem;
+}
+
+@media all and (max-width: 1400px) {
+	.featuredLister {
+		height: 40rem;
+	}
+}
+
+@media all and (max-width: 600px) {
+	.featuredLister {
+		height: 50vh;
+	}
+	.h4 {
+		display: none;
+	}
+	.lister {
+		display: none;
+	}
+}

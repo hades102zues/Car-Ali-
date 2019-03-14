@@ -1,0 +1,20 @@
+.DropDown {
+	background-color: #344046;
+	position: fixed;
+	width: 100vw;
+	z-index: 100;
+
+	/*The display cannot be initially set to none. The item must exist!!!*/
+	/*
+	when max-height is 0 the navitems will overflow and twill be displayed. Thus
+	we set overflow to hidden in order to hide the items
+	*/
+
+	transition: max-height 0.75s ease-in;
+	overflow: hidden;
+}
+@media all and (min-width: 600px) {
+	.DropDown {
+		display: none;
+	}
+}

@@ -1,0 +1,13 @@
+.ResultsLister {
+	display: flex;
+	flex-flow: row wrap;
+	padding-bottom: 50px;
+}
+
+@media all and (max-width: 755px) {
+	.ResultsLister {
+		display: block;
+		overflow-y: scroll;
+		height: 60vh;
+	}
+}

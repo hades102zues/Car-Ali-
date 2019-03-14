@@ -1,0 +1,54 @@
+.loginText {
+	font-size: 3.2rem;
+	text-align: center;
+	font-weight: bold;
+}
+.authmessagebox {
+	border: 1px solid #d50000;
+	background-color: #e57373;
+	padding: 5;
+	margin-bottom: 5px;
+	font-size: 2rem;
+	width: 100%;
+	text-align: center;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+	margin: 25px auto;
+}
+.field {
+	padding-left: 15px;
+	border: none;
+	height: 3.5rem;
+	width: 100%;
+	background-color: #ccc;
+	margin-bottom: 10px;
+}
+.button {
+	border: none;
+	background-color: #b8232c;
+	cursor: pointer;
+	height: 35px;
+	color: white;
+	font-weight: bold;
+	width: 30%;
+}
+.signupText {
+	color: blue;
+	font-size: 1.5rem;
+	text-decoration: underline;
+	cursor: pointer;
+	text-align: center;
+}
+
+@media all and (max-width: 800px) {
+	.form {
+		width: 80%;
+	}
+	.loginText {
+		font-size: 2.5rem;
+	}
+}

@@ -1,0 +1,33 @@
+.SearchBar {
+	height: 100%;
+	width: 80%;
+}
+.selector {
+	height: 4rem;
+	width: 15%;
+	text-align: "center";
+	border: none;
+	margin-right: 2px;
+}
+.searchInput {
+	height: 4rem;
+	border: none;
+	width: 60%;
+	padding-left: 1rem;
+}
+.button {
+	border: none;
+	height: 4rem;
+	width: 20%;
+	background-color: #b8232c;
+	color: white;
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+@media all and (max-width: 500px) {
+	.SearchBar {
+		height: 100%;
+		width: 95%;
+	}
+}

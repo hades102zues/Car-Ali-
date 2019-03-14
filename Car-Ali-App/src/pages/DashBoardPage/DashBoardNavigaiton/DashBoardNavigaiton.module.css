@@ -1,0 +1,38 @@
+.dashBoardNavigaiton {
+	height: 100%;
+	background-color: #90a4ae;
+	width: 15%;
+}
+.imageBox {
+	height: 15rem;
+	width: 15rem;
+	border-radius: 50%;
+	background-color: #ccc;
+	margin: 20px auto;
+}
+.img {
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+@media all and (max-width: 900px) {
+	.dashBoardNavigaiton {
+		width: 20%;
+	}
+	.imageBox {
+		height: 10rem;
+		width: 10rem;
+		border-radius: 50%;
+		background-color: #ccc;
+		margin: 20px auto;
+	}
+}
+
+@media all and (max-width: 650px) {
+	.imageBox {
+		height: 5rem;
+		width: 5rem;
+	}
+}

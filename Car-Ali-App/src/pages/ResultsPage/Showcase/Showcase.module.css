@@ -1,0 +1,15 @@
+.showCase {
+	height: 100px;
+	background-color: #100f0b;
+	opacity: 0.85;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.p {
+	font-size: 4rem;
+	font-weight: 500;
+	color: white;
+}

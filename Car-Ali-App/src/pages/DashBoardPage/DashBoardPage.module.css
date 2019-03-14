@@ -1,0 +1,8 @@
+.dashBoardPage {
+	background-color: purple;
+	top: 12rem;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	bottom: 0;
+}

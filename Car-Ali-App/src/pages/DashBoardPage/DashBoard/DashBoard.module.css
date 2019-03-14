@@ -1,0 +1,10 @@
+.dashBoard {
+	width: 85%;
+	background-color: grey;
+}
+
+@media all and (max-width: 900px) {
+	.dashBoard {
+		width: 80%;
+	}
+}

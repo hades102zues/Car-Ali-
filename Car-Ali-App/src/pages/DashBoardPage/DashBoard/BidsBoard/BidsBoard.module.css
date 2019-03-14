@@ -1,0 +1,68 @@
+.bidsBoard {
+	background-color: white;
+}
+
+.boardHeading {
+	padding: 6px 25px;
+	background-color: #eceff1;
+	display: flex;
+	align-items: center;
+	height: 50px;
+	position: relative;
+}
+
+.boardName {
+	font-size: 1.7rem;
+
+	font-weight: bold;
+}
+
+.addButton {
+	background-color: green;
+	border-radius: 5px;
+	height: 3rem;
+	width: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	position: absolute;
+	right: 25px;
+	cursor: pointer;
+}
+
+.plus {
+	font-size: 1.7rem;
+
+	font-weight: bold;
+	color: white;
+}
+
+.listingHeading {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding: 6px 25px;
+}
+.left {
+	width: 50%;
+	position: relative;
+}
+.number {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.car {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.modify {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	font-size: 1.5rem;
+	font-weight: bold;
+}

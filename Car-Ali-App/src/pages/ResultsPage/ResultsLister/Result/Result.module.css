@@ -1,0 +1,95 @@
+.result {
+	/*height: 32rem;*/
+	width: 32rem;
+	background-color: #adacad;
+	margin-right: 35px;
+	margin-bottom: 35px;
+	cursor: pointer;
+	box-shadow: 1px 1px 10px #545454;
+}
+
+.headerStatus {
+	height: 2.5rem;
+	background-color: #344046;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.headerText {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.imageBox {
+	height: 17rem;
+	width: 100%;
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nameText {
+	font-size: 2rem;
+	font-weight: bold;
+	color: black;
+	margin-top: 15px;
+	margin-left: 5px;
+}
+
+.infoBox {
+	height: 8rem;
+	display: flex;
+	background-color: purple;
+	margin-top: 15px;
+}
+.info {
+	background-color: #344046;
+	opacity: 0.85;
+	height: 100%;
+	width: 25%;
+	text-align: center;
+	padding: 10px 2px 0;
+}
+.infoHeader {
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.infoText {
+	font-size: 1rem;
+	color: white;
+}
+.bidHighlight {
+	height: 8rem;
+	background-color: #b8232c;
+	padding: 10px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.bidText {
+	font-size: 2rem;
+	font-weight: bold;
+	color: white;
+}
+
+.bidPrice {
+	margin-top: 10px;
+	color: white;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+@media all and (max-width: 755px) {
+	.result {
+		width: 100%;
+	}
+}

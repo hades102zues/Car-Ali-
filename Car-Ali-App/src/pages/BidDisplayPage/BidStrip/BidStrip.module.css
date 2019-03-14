@@ -1,0 +1,70 @@
+.BidStrip {
+	background-color: white;
+	margin-left: 200px;
+	width: 35%;
+	box-shadow: 2px 1px 10px #545454;
+	height: 150px;
+}
+.bidValue {
+	height: 50px;
+	height: 25%;
+	background-color: green;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bidText {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: white;
+}
+.form {
+	height: 75%;
+}
+.bidBox {
+	height: 50px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.bidInput {
+	border: 1px solid #adacad;
+	background-color: #ccc;
+	height: 100%;
+	width: 100%;
+	font-size: 1.5rem;
+	padding: 5px 15px;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+
+.bidButton {
+	width: 100%;
+	height: 35px;
+	color: white;
+	background-color: #b8232c;
+	border: none;
+	margin-top: 30px;
+	cursor: pointer;
+}
+
+@media all and (max-width: 1600px) {
+	.BidStrip {
+		margin-left: 100px;
+		width: 35%;
+	}
+}
+
+@media all and (max-width: 750px) {
+	.BidStrip {
+		width: 60%;
+		margin: 20px auto;
+	}
+}
+
+@media all and (max-width: 450px) {
+	.BidStrip {
+		width: 55%;
+	}
+}

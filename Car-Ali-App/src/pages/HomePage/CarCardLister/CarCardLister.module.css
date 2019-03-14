@@ -1,0 +1,11 @@
+.CarCardLister {
+	height: 100%;
+	display: flex;
+	overflow-x: scroll;
+}
+
+@media all and (max-width: 600px) {
+	.CarCardLister {
+		height: 100%;
+	}
+}

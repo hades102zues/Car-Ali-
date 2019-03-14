@@ -1,0 +1,50 @@
+.bidItem {
+	display: flex;
+	background-color: #eceff1;
+	padding: 6px 25px;
+}
+
+.left {
+	width: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.carName {
+	font-size: 2rem;
+}
+.cost {
+	font-size: 2rem;
+	position: absolute;
+	right: 0;
+	transform: translateY(-50%);
+	top: 50%;
+}
+
+.right {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+}
+.viewButton {
+	height: 3rem;
+	width: 4rem;
+	border-radius: 5px;
+	background-color: blue;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.deleteButton {
+	height: 3rem;
+	width: 4rem;
+	border-radius: 5px;
+	background-color: red;
+	cursor: pointer;
+}
+
+.img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}

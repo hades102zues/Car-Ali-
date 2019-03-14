@@ -1,0 +1,99 @@
+.BidShowCase {
+	height: 70rem;
+	/*background-color: green;*/
+}
+.namePlacer {
+	/*background-color: black;*/
+	height: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
+	background-color: black;
+	color: white;
+}
+.carName {
+	font-size: 3.5rem;
+}
+.infoBox {
+	/*	background-color: red;*/
+	height: 12rem;
+	display: flex;
+	background-color: purple;
+}
+.info {
+	background-color: #344046;
+	opacity: 0.85;
+	height: 100%;
+	width: 25%;
+	text-align: center;
+	padding: 10px 2px 0;
+}
+
+.infoHeader {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.infoText {
+	font-size: 1.5rem;
+	color: white;
+}
+
+.imageBox {
+	height: 100%;
+	width: 100%;
+}
+.img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+@media all and (max-width: 1400px) {
+	.BidShowCase {
+		height: 50rem;
+		/*background-color: green;*/
+	}
+
+	.infoBox {
+		height: 8.5rem;
+	}
+}
+
+@media all and (max-width: 850px) {
+	.BidShowCase {
+		height: 30vh;
+	}
+	.namePlacer {
+		height: 3.5rem;
+	}
+	.carName {
+		font-size: 2.5rem;
+	}
+
+	.infoBox {
+		height: 8rem;
+	}
+	.infoHeader {
+		font-size: 1.2rem;
+	}
+
+	.infoText {
+		font-size: 1.2rem;
+	}
+}
+
+@media all and (max-width: 650px) {
+	.BidShowCase {
+		height: 20vh;
+	}
+	.namePlacer {
+		height: 2.5rem;
+	}
+	.infoBox {
+		height: 7.5rem;
+	}
+}

@@ -1,0 +1,10 @@
+.bidPlacer {
+	margin-top: 50px;
+	display: flex;
+}
+
+@media all and (max-width: 750px) {
+	.bidPlacer {
+		display: block;
+	}
+}

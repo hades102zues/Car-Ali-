@@ -1,0 +1,60 @@
+.ListerCard {
+	position: fixed;
+	z-index: 10;
+	top: 20%;
+	left: 50%;
+	padding: 20px 10px;
+	transform: translateX(-50%);
+	width: 40%;
+	background-color: #eceff1;
+}
+
+.authmessagebox {
+	border: 1px solid #d50000;
+	background-color: #e57373;
+	padding: 5;
+	margin-bottom: 5px;
+	font-size: 2rem;
+	width: 100%;
+	text-align: center;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+	margin: 25px auto;
+}
+.fieldSelect {
+	padding-left: 15px;
+	border: none;
+	height: 3.5rem;
+	width: 20%;
+	margin-bottom: 10px;
+	display: block;
+}
+.field {
+	padding-left: 15px;
+	border: none;
+	height: 3.5rem;
+	width: 100%;
+	display: block;
+	margin-bottom: 10px;
+}
+.button {
+	border: none;
+	background-color: #b8232c;
+	cursor: pointer;
+	height: 35px;
+	color: white;
+	margin: 10px auto;
+	display: block;
+	font-weight: bold;
+	width: 30%;
+}
+
+@media all and (max-width: 800px) {
+	.ListerCard {
+		width: 95%;
+	}
+}
