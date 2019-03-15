@@ -4,6 +4,7 @@ const Bid = require("../models/bid");
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET || "Kil3rQue3nbiT5D4Dust";
 const mailer = require('../emailer');
+const crypto = require('crypto');
 
 
 
@@ -29,9 +30,9 @@ exports.postSignup = (req, res) => {
 
 						//send back a token
 						
-						 mailer.sendMail({
+						 mailer.send({
 							to:req.body.email,
-							from:'jacob26referibles@gmail.com',
+							from:'car-ali@bix.com',
 							subject:'Welcome to Car-ALi!',
 							html:`<h1>You're up and ready to Bid, ${req.body.name}. Go on!</h1>`
 						}, (error,info)=>{
@@ -53,7 +54,8 @@ exports.postSignup = (req, res) => {
 };
 
 exports.postLogin = (req, res) => {
-	
+		
+
 	User.getOne(req, res, user => {
 		if (user) {
 			//user exists
@@ -88,6 +90,48 @@ exports.postLogin = (req, res) => {
 		}
 	});
 };
+
+exports.postPasswordReset=(req, res)=>{
+	User.getOne(req, res, user => {
+		if (user) {
+			//user exists
+			crypto.randomBytes(32, (err, buffer)=>{
+				if(err){
+					
+					res.status(500).json({message: 'Server Error Occured'});
+				}else{
+					const token = buffer.toString('hex');
+					const expirationDate = Date.now() + 3600000;//hour in ms
+					
+					User.expUpdate(req, res, ()=>{
+
+						mailer.send({
+							to:req.body.email,
+							from:'car-ali@bix.com',
+							subject:'Password Reset',
+							html:`
+							<a href="http://localhost:3000/password-reset-confirm/${token}"><p>Click To Reset Password</p></a>
+							`
+
+						}, (err, info)=>{
+							if(!err)
+								res.status(200).json({message:'Reset in Email'})
+						});
+
+
+					}, {reset_token: token, reset_token_exptime:expirationDate});
+				}
+			});
+		} else {
+			res.status(400).json({ message: "No Account With That Email Found" });
+		}
+	});
+}
+
+exports.postPasswordConfirm=(req, res)=>{
+	res.status(200).json({message:'hi',
+token:req.params.token});
+}
 
 //**guarded
 exports.getUserDetails = (req, res) => {

@@ -9,7 +9,9 @@ module.exports = class User {
 				name: req.body.name,
 				email: req.body.email,
 				password: req.hash,
-				profile_img:''
+				profile_img:'',
+				reset_token:'',
+				reset_token_exptime: 0
 			})
 			.returning(["id", "username", "name", "email", 'profile_img'])
 			.then(result => cb(result[0]))
@@ -25,7 +27,7 @@ module.exports = class User {
 			.where({ email: req.body.email })
 			.first()
 			.then(result => cb(result))
-			.catch(err => console.log("Error getting user"));
+			.catch(err => console.log('Error Getting User'));
 	}
 
 	//
@@ -45,7 +47,17 @@ module.exports = class User {
 			.update(updObject)
 			.where({ id: req.decoded.id })
 			.then(result => cb(result))
-			.catch(err => console.log("Error getting user"));
+			.catch(err => console.log("Error Updating User"));
+	}
+
+	static expUpdate(req, res, cb, updObject = null) {
+		if (updObject === null) return;
+
+		knex("users")
+			.update(updObject)
+			.where({ email: req.body.email })
+			.then(result => cb(result))
+			.catch(err => console.log("Error Updating User Exp", err));
 	}
 	//update
 

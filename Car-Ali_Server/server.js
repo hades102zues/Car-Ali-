@@ -32,15 +32,9 @@ app.use(unguardedlistingRoutes);
 app.use(unguardedBidRoutes);
 
 
-
-//app.use(upload.single("image"));
-//app.use(authWare);
-
 app.use( guardedLoginRoutes);
 app.use(guardedBidRoutes);
 
-//the file is now accessible through req.file.
-//single takes the name of the field alloted to the file, uploaded in the form
 app.use( guardedlistingRoutes);
 
 app.use((error, req, res, next) => {
