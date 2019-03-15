@@ -31,6 +31,10 @@ class LoginCard extends Component {
 	onSignUpClickHandler = () => {
 		this.props.history.push("/signup");
 	};
+
+	onPasswordResetClickHandler = () => {
+		this.props.history.push("/password-reset");
+	};
 	render() {
 		const configList = this.state.loginConfigs;
 
@@ -77,6 +81,12 @@ class LoginCard extends Component {
 					onClick={this.onSignUpClickHandler}
 				>
 					New User? Sign Up Now!
+				</p>
+				<p
+					className={styles.signupText2}
+					onClick={this.onPasswordResetClickHandler}
+				>
+					Forgot your password?
 				</p>
 			</div>
 		);
