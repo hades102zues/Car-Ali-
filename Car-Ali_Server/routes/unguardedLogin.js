@@ -9,6 +9,6 @@ router.post("/login", loginControllers.postLogin);
 router.post('/password-reset', loginControllers.postPasswordReset);
 
 //user gets link from email and resets password
-router.post('/password-reset-confirm/:token', loginControllers.postPasswordConfirm);
+router.post('/password-reset-confirm', loginControllers.postPasswordConfirm);
 
 module.exports = router;

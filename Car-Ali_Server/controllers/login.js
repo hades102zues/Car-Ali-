@@ -129,8 +129,28 @@ exports.postPasswordReset=(req, res)=>{
 }
 
 exports.postPasswordConfirm=(req, res)=>{
-	res.status(200).json({message:'hi',
-token:req.params.token});
+	User.passwordResetGetOne(req, res, (user)=>{
+		if(!user){
+			res.status(500).json({message:'Something Went Wrong'});
+		}else{
+
+			
+			//expiration date hase not been exceeded
+			if(parseInt(user.reset_token_exptime) > Date.now() ){
+
+				hasher
+				.hash(req.body.newPassword, 10)
+				.then(hash => {
+					User.passwordResetUpdate(req,res,()=>{
+						res.status(200).json({message: 'Password Reset Succesful'});
+					},{ password: hash, reset_token:'', reset_token_exptime:0} );
+				});
+				
+			}else{
+				res.status(400).json({message: 'Password Expired'});
+			}
+		}
+	});
 }
 
 //**guarded

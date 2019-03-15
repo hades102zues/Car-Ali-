@@ -40,6 +40,8 @@ module.exports = class User {
 			.catch(err => console.log("Error getting user"));
 	}
 
+	
+
 	static update(req, res, cb, updObject = null) {
 		if (updObject === null) return;
 
@@ -50,6 +52,8 @@ module.exports = class User {
 			.catch(err => console.log("Error Updating User"));
 	}
 
+
+
 	static expUpdate(req, res, cb, updObject = null) {
 		if (updObject === null) return;
 
@@ -58,6 +62,26 @@ module.exports = class User {
 			.where({ email: req.body.email })
 			.then(result => cb(result))
 			.catch(err => console.log("Error Updating User Exp", err));
+	}
+
+
+	static passwordResetGetOne(req, res, cb) {
+		knex("users")
+			.select()
+			.where({ reset_token: req.body.token })
+			.first()
+			.then(result => cb(result))
+			.catch(err => console.log('Error Getting User', err));
+	}
+
+	static passwordResetUpdate(req, res, cb, updObject = null) {
+		if (updObject === null) return;
+
+		knex("users")
+			.update(updObject)
+			.where({ reset_token: req.body.token })
+			.then(result => cb(result))
+			.catch(err => console.log("Error Updating User passordreset", err));
 	}
 	//update
 
