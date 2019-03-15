@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import styles from "./SignupCard.module.css";
-import { connect } from "react-redux";
+
 import { Form, Field, withFormik, ErrorMessage } from "formik";
 import { Redirect } from "react-router-dom";
 import * as yup from "yup";
-
-import * as actions from "../../../redux/actions/index";
+import { withRouter } from "react-router-dom";
+import { base } from "../../app-level/constants";
 
 class SignupCard extends Component {
 	constructor(props) {
@@ -22,17 +22,16 @@ class SignupCard extends Component {
 					name: "confirmPassword",
 					placeholder: "Confirm New Password"
 				}
-			],
-			serverAuthMessage: null
+			]
 		};
 	}
 
 	render() {
 		const configList = this.state.signupConfigs;
 
-		const serverAuthMessageBox = this.props.serverAuthMessage ? (
+		const serverAuthMessageBox = this.props.values.serverAuthMessage ? (
 			<div className={styles.authmessagebox}>
-				{this.props.serverAuthMessage}
+				{this.props.values.serverAuthMessage}
 			</div>
 		) : null;
 		const fieldItems = configList.map(config => (
@@ -73,12 +72,6 @@ class SignupCard extends Component {
 }
 
 const formValidation = yup.object().shape({
-	userName: yup.string().required("Please enter a user name"),
-	name: yup.string().required(),
-	email: yup
-		.string()
-		.email("Please enter a valid email")
-		.required("Please enter an email address"),
 	newPassword: yup
 		.string()
 		.min(6, "Password Must be Atleast 6 characters")
@@ -93,19 +86,6 @@ const formValidation = yup.object().shape({
 		.required()
 });
 
-const mapDispatchToProps = dispatch => {
-	return {
-		signUp: (user, should) => dispatch(actions.signupUser(user, should))
-	};
-};
-
-const mapStateToProps = state => {
-	return {
-		serverAuthMessage: state.login.serverAuthMessage,
-		authToken: state.login.token
-	};
-};
-
 const formikComp = withFormik({
 	mapPropsToValues: () => {
 		return {
@@ -113,17 +93,24 @@ const formikComp = withFormik({
 			confirmPassword: ""
 		};
 	},
-	handleSubmit: (values, { props }) => {
-		// fetch(,{
-		// 	method:'POST',
-		// 	headers:{'Content-Type':'application/json'},
-		// 	body:JSON.stringify({newPassword: values.newPassword, token: this.props.location.params})
-		// });
+	handleSubmit: (values, { props, setFieldValue }) => {
+		const token = props.match.params.token;
+
+		fetch(`${base}/password-reset-confirm`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ newPassword: values.newPassword, token })
+		})
+			.then(res => {
+				if (res.status === 200) props.history.push("/");
+				else return res.json();
+			})
+			.then(data => {
+				setFieldValue("serverAuthMessage", data.message);
+			})
+			.catch(err => null);
 	},
 	validationSchema: formValidation
 })(SignupCard);
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(formikComp);
+export default withRouter(formikComp);

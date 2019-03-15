@@ -49,11 +49,8 @@ class SignupCard extends Component {
 			</React.Fragment>
 		));
 
-		const redirect = this.props.authToken ? <Redirect to="/" /> : null;
-
 		return (
 			<div className={styles.signupCard}>
-				{redirect}
 				<p className={styles.signupText}>
 					Enter Email For Password Reset <br />A link will be sent to
 					the email provided.

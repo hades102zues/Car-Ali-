@@ -38,7 +38,7 @@ class App extends Component {
               <Route path="/user/dashboard" component={DashBoardPage} />
               <Route path="/password-reset" component={ResetPasswordPage} />
               <Route
-                path="/password-reset-confirm"
+                path="/password-reset-confirm/:token"
                 component={ResetPasswordConfirmPage}
               />
               <Redirect to="/" />
