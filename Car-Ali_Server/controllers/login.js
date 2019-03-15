@@ -30,9 +30,9 @@ exports.postSignup = (req, res) => {
 
 						//send back a token
 						
-						 mailer.send({
+						 mailer.sendMail({
 							to:req.body.email,
-							from:'car-ali@bix.com',
+							from:'carali.test@gmail.com',
 							subject:'Welcome to Car-ALi!',
 							html:`<h1>You're up and ready to Bid, ${req.body.name}. Go on!</h1>`
 						}, (error,info)=>{
@@ -105,9 +105,9 @@ exports.postPasswordReset=(req, res)=>{
 					
 					User.expUpdate(req, res, ()=>{
 
-						mailer.send({
+						mailer.sendMail({
 							to:req.body.email,
-							from:'car-ali@bix.com',
+							from:'carali.test@gmail.com',
 							subject:'Password Reset',
 							html:`
 							<a href="http://localhost:3000/password-reset-confirm/${token}"><p>Click To Reset Password</p></a>

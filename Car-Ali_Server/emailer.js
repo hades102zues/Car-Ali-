@@ -1,14 +1,16 @@
 const nodemailer = require('nodemailer');
 
 
-//this stuff is only viable in development
+//this is only be viable in development
+//had to turn on the less secure app feautre on the gmail account
+//or the email are never handled
 const  transporter = nodemailer.createTransport({
     service: 'gmail',
   auth: {
-    user: 'jacob26referibles@gmail.com',
-    pass: 'joshua_8205@24.09'
+    user: 'carali.test@gmail.com',
+    pass: 'carali_50282409'
   },
-  tls:{
+  tls:{ //to prevent the self-signed certificate error
   	rejectUnauthorized: false
   }
   
@@ -28,5 +30,5 @@ sgMail.setApiKey(api_key);
 //which are applied through addons.
 //And so, make sure to chose a hoster which has support for your 3rd party mailer of choice
 
-module.exports = sgMail;
+module.exports = transporter;
 
