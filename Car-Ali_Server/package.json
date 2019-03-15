@@ -9,6 +9,7 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
@@ -19,9 +20,13 @@
     "knex": "^0.16.3",
     "multer": "^1.4.1",
     "mysql2": "^1.6.4",
+    "nodemailer": "^5.1.1",
     "pg": "^7.8.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4",
     "nodemon": "^1.18.9"
   }
 }

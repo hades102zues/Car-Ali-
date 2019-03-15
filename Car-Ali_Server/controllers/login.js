@@ -3,6 +3,9 @@ const User = require("../models/users");
 const Bid = require("../models/bid");
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET || "Kil3rQue3nbiT5D4Dust";
+const mailer = require('../emailer');
+
+
 
 exports.postSignup = (req, res) => {
 	//check to see if the user exists
@@ -25,9 +28,18 @@ exports.postSignup = (req, res) => {
 						const token = jwt.sign(result, secret);
 
 						//send back a token
-						res.status(200).json({
+						
+						 mailer.sendMail({
+							to:req.body.email,
+							from:'jacob26referibles@gmail.com',
+							subject:'Welcome to Car-ALi!',
+							html:`<h1>You're up and ready to Bid, ${req.body.name}. Go on!</h1>`
+						}, (error,info)=>{
+							if(!error)
+							res.status(200).json({
 							message: "New User Created!",
-							token: token
+							token: token	
+						  });
 						});
 					});
 				})
@@ -41,6 +53,7 @@ exports.postSignup = (req, res) => {
 };
 
 exports.postLogin = (req, res) => {
+	
 	User.getOne(req, res, user => {
 		if (user) {
 			//user exists
@@ -56,6 +69,7 @@ exports.postLogin = (req, res) => {
 
 					//then create a token
 					const token = jwt.sign(user, secret);
+
 
 					//send back a token
 					res.status(200).json({

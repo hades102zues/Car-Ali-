@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended", 
+    "plugin:react/recommended"
+  ],
+  
+  "env": {
+    "jest": true,
+    "browser": true,
+     "es6": true,
+     "node":true
+  },
+  "plugins": [
+    "react"
+  ], 
+  "rules": {
+    "no-use-before-define": "off",
+    "no-console":"off",
+    "react/jsx-filename-extension": "off",
+    "react/prop-types": "off",
+    "comma-dangle": "off"
+  }
+}

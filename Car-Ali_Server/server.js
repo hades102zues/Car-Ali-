@@ -34,7 +34,7 @@ app.use(unguardedBidRoutes);
 
 
 //app.use(upload.single("image"));
-app.use(authWare);
+//app.use(authWare);
 
 app.use( guardedLoginRoutes);
 app.use(guardedBidRoutes);
