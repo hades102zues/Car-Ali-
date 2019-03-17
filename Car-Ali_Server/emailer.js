@@ -19,9 +19,7 @@ const  transporter = nodemailer.createTransport({
 //in a production setup we must make use of a 3rd Party Mailing Servers like 
 //SendGrid or Mailgun
 //or your outgoing emails will be seen as unsecure and ignored by Outlook, Gmail, etc.
-const api_key='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';
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(api_key);
+
 
 //these 3rd parties usually provide their own api module for which
 //to connect to their servers

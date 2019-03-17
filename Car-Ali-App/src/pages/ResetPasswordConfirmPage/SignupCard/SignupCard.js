@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./SignupCard.module.css";
 
 import { Form, Field, withFormik, ErrorMessage } from "formik";
-import { Redirect } from "react-router-dom";
+
 import * as yup from "yup";
 import { withRouter } from "react-router-dom";
 import { base } from "../../app-level/constants";
@@ -53,11 +53,8 @@ class SignupCard extends Component {
 			</React.Fragment>
 		));
 
-		const redirect = this.props.authToken ? <Redirect to="/" /> : null;
-
 		return (
 			<div className={styles.signupCard}>
-				{redirect}
 				<p className={styles.signupText}>Enter Your New Password</p>
 				{serverAuthMessageBox}
 				<Form className={styles.form}>

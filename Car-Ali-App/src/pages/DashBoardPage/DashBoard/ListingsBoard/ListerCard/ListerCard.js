@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./ListerCard.module.css";
 import { connect } from "react-redux";
-import * as yup from "yup";
+//import * as yup from "yup";
 import { base } from "../../../../app-level/constants";
 
 import { Form, Field, withFormik, ErrorMessage } from "formik";

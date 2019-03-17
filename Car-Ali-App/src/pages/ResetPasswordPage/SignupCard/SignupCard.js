@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./SignupCard.module.css";
 
 import { Form, Field, withFormik, ErrorMessage } from "formik";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { base } from "../../app-level/constants";
 
 import * as yup from "yup";
