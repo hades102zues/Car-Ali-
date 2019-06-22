@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 
 //this is only be viable in development
 //had to turn on the less secure app feautre on the gmail account
-//or the email are never handled
+//or the emails are never handled
 const  transporter = nodemailer.createTransport({
     service: 'gmail',
   auth: {

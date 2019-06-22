@@ -16,7 +16,6 @@ const guardedLoginRoutes = require("./routes/guardedLogin");
 const guardedlistingRoutes = require("./routes/guardedListing");
 const guardedBidRoutes = require("./routes/guardedBid");
 
-
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
@@ -31,23 +30,24 @@ app.use(unguargedLoginRoutes);
 app.use(unguardedlistingRoutes);
 app.use(unguardedBidRoutes);
 
-
-app.use( guardedLoginRoutes);
+app.use(guardedLoginRoutes);
 app.use(guardedBidRoutes);
 
-app.use( guardedlistingRoutes);
+app.use(guardedlistingRoutes);
 
 app.use((error, req, res, next) => {
 	console.log(error);
-	const errorCode = 501;
-	const errorMessage = error.message ? error.message : "Internal error.";
+	// const errorCode = 501;
+	// const errorMessage = error.message ? error.message : "Internal error.";
 
-	res.status(errorCode).json({
-		message: errorMessage
-	});
+	// res.status(errorCode).json({
+	// 	message: errorMessage
+	// });
 });
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Unknown Route" });
 });
-app.listen(port, () => console.log("****SERVER INITIATED***", process.env.DATABASE_URL));
+app.listen(port, () =>
+	console.log("****SERVER INITIATED***", process.env.DATABASE_URL)
+);
