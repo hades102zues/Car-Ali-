@@ -48,7 +48,7 @@ class ProfileBoard extends Component {
 		})
 			.then(res => res.json())
 			.then(data => this.setState({ userDetails: data.userInfo }))
-			.catch(err => alert("Error Occured!"));
+			.catch(err => console.log("No Network Available"));
 	};
 
 	render() {

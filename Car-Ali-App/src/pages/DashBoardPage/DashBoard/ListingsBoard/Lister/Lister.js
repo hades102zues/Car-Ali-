@@ -9,7 +9,10 @@ class Lister extends Component {
 	}
 
 	render() {
-		const listItems = this.props.listItems.map(item => (
+		let listItems = null;
+
+		if(this.props.listItems.length){
+		 listItems = this.props.listItems.map(item => (
 			<ListItem
 				carName={item.car_name}
 				condition={item.condition}
@@ -27,6 +30,7 @@ class Lister extends Component {
 				showListingCard={this.props.show}
 			/>
 		));
+		}
 
 		return <div className={styles.Lister}>{listItems}</div>;
 	}

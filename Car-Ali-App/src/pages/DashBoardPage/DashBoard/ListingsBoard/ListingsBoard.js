@@ -11,6 +11,7 @@ class listingsBoard extends Component {
 		this.state = {
 			showListCard: false,
 			listItems: [],
+			fetchDidOccur: false,
 			initiateReloop: 1,
 			editPackage: null,
 			isEditMode: false
@@ -25,7 +26,11 @@ class listingsBoard extends Component {
 	}
 
 	componentDidUpdate() {
-		if (!this.state.listItems.length) this.fetchData();
+
+		if(!this.state.fetchDidOccur){
+			this.fetchData();
+		}
+	
 	}
 
 	onListCardPopUp = () => {
@@ -72,9 +77,20 @@ class listingsBoard extends Component {
 			headers: { Authorization: "Bearer " + this.props.authToken },
 			method: "GET"
 		})
-			.then(res => res.json())
+			.then(res =>{
+
+				this.setState({fetchDidOccur: true});
+				 if(res.status === 200){
+					return res.json();
+				 }
+			})
 			.then(data => this.setState({ listItems: data.results }))
-			.catch(err => alert("Error Retrieving Listing Data"));
+			.catch(err => {
+				
+				this.setState({fetchDidOccur: true});
+				console.log("Error Retrieving Listing Data")
+		
+			});
 	};
 
 	onDeleteItemHandler = listId => {
@@ -88,7 +104,7 @@ class listingsBoard extends Component {
 		})
 			.then(res => this.fetchData())
 
-			.catch(err => alert("Error Deleting Listing"));
+			.catch(err => console.log("Error Deleting Listing"));
 	};
 
 	onAcceptItemHandler = listId => {

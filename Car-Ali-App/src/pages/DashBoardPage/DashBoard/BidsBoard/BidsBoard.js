@@ -8,7 +8,8 @@ class BidsBoard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			bidItems: []
+			bidItems: [],
+			fetchDidOccur:false
 		};
 	}
 
@@ -19,12 +20,11 @@ class BidsBoard extends Component {
 		this.setState({ initiateReloop: 2 });
 	}
 
-	componentWillUpdate() {
-		//
-	}
-
 	componentDidUpdate() {
-		if (!this.state.bidItems.length) this.fetchData();
+
+		if (!this.state.fetchDidOccur) {
+			this.fetchData();
+		}
 	}
 
 	fetchData = () => {
@@ -32,9 +32,21 @@ class BidsBoard extends Component {
 			headers: { Authorization: "Bearer " + this.props.authToken },
 			method: "GET"
 		})
-			.then(res => res.json())
-			.then(data => this.setState({ bidItems: data.results }))
-			.catch(err => alert("Error Retrieving Bid Data"));
+			.then(res =>{
+
+				this.setState({fetchDidOccur: true});
+				 if(res.status === 200){
+					return res.json();
+				 }
+			})
+			.then(data => {
+				this.setState({ bidItems: data.results });
+			})
+			.catch(err =>{ 
+
+				this.setState({fetchDidOccur: true});
+				console.log("Error Retrieving Bid Data")
+			});
 	};
 
 	onDeleteItemHandler = bidId => {
@@ -48,7 +60,7 @@ class BidsBoard extends Component {
 		})
 			.then(res => this.fetchData())
 
-			.catch(err => alert("Error Deleting Bid"));
+			.catch(err => console.log("Error Deleting Bid"));
 	};
 
 	render() {

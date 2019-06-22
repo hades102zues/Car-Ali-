@@ -40,8 +40,15 @@ export const signupUser = (userData, shouldSignUp) => dispatch => {
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(userData)
 	})
-		.then(res => res.json())
+		.then(res => {
+
+			if (res.status===200) {
+				return res.json();
+			}
+			
+		} )
 		.then(data => {
+			
 			storeTokenBrowser(data.token);
 			dispatch(storeTokenRedux(data.token, data.message));
 		})
