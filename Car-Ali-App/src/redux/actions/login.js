@@ -35,22 +35,33 @@ export const grabTokenFromLocal = () => {
 export const signupUser = (userData, shouldSignUp) => dispatch => {
 	const path = shouldSignUp ? "/signup" : "/login";
 
+
+	let success = false;
+
 	fetch(`${base}${path}`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(userData)
 	})
 		.then(res => {
-
+			console.log(res);
 			if (res.status===200) {
-				return res.json();
+				success = true;
 			}
+
+			return res.json();
 			
 		} )
 		.then(data => {
 			
-			storeTokenBrowser(data.token);
-			dispatch(storeTokenRedux(data.token, data.message));
+			if  (success) {
+				storeTokenBrowser(data.token);
+				dispatch(storeTokenRedux(data.token, data.message));
+			}
+			else{
+				dispatch(storeTokenRedux(null, data.message));
+			}
+			
 		})
 		.catch(err => console.log("signupuser", err));
 };
