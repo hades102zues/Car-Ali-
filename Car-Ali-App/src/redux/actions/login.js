@@ -54,6 +54,7 @@ export const signupUser = (userData, shouldSignUp) => dispatch => {
 		} )
 		.then(data => {
 			
+			
 			if  (success) {
 				storeTokenBrowser(data.token);
 				dispatch(storeTokenRedux(data.token, data.message));
