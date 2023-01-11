@@ -17,7 +17,7 @@
     "express-validator": "^5.3.1",
     "helmet": "^3.16.0",
     "jsonwebtoken": "^8.4.0",
-    "knex": "^0.16.3",
+    "knex": "^2.4.0",
     "multer": "^1.4.1",
     "mysql2": "^1.6.4",
     "nodemailer": "^5.1.1",
